@@ -46,6 +46,11 @@ USE mysql;
 UPDATE user SET plugin='mysql_native_password' WHERE User='root';
 FLUSH PRIVILEGES;
 exit;
+
+#atau update
+>> UPDATE mysql.user SET Password=PASSWORD('new_password') WHERE User='root';
+>> UPDATE mysql.user SET authentication_string =PASSWORD('new_password') WHERE User='root';
+
 $ service mysql restart
 ```
 3.Not pound phpmyaadmin
