@@ -59,3 +59,32 @@ sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.co
 sudo a2enconf phpmyadmin.conf
 sudo service apache2 reload
 ```
+# problem htaccess apache2 codeigniter
+```
+# nano /etc/apache2/sites-available/000-default.conf
+<VirtualHost *:80>
+ServerName 192.168.43.213
+
+ServerAdmin webmaster@localhost
+
+DocumentRoot /var/www/myapp
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+# nano /etc/apache2/apache2.conf
+<Directory /var/www/>
+Options Indexes FollowSymLinks
+AllowOverride All
+Require all granted
+</Directory>
+
+#diakhir apache2.conf
+ServerSignature Off
+ServerTokens Prod
+
+# a2enmod rewrite
+# systemctl restart apache2
+
+```
