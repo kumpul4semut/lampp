@@ -46,5 +46,11 @@ USE mysql;
 UPDATE user SET plugin='mysql_native_password' WHERE User='root';
 FLUSH PRIVILEGES;
 exit;
-
 $ service mysql restart
+```
+3.Not pound phpmyaadmin
+```
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+sudo a2enconf phpmyadmin.conf
+sudo service apache2 reload
+```
